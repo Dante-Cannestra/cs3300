@@ -1,24 +1,14 @@
 require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
-  
-  #before(:each) do
-  #  testUser = FactoryBot.create(:user)
-  #  visit new_project_path
-  #  sign_in testUser
-  #  within("div", id:"title") do
-  #    fill_in "Title", with: "Test title"
-  #  end
-  #end
+
+  user = FactoryBot.create(:user)
 
   context "Create new project" do
     before(:each) do
+      Warden.test_mode!
+      login_as(user, :scope => :user)
       visit new_project_path
-      click_link "Sign up"
-      fill_in "Email", :with => "test@email.com"
-      fill_in "Password", :with => "password"
-      fill_in "Password confirmation", :with => "password"
-      click_button "Sign up"
       within("form") do
         fill_in "Title", with: "Test title"
       end
