@@ -1,21 +1,4 @@
 <p style="color: green"><%= notice %></p>
-
-<head>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About Me</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
   <div class="container-fluid p-5 my-5 bg-dark text-white">
     <h1>Dante Cannestra CS3300 Portfolio</h1>
     <p>Welcome to the portfolio page of Dante Cannestra!!!</p>
@@ -28,9 +11,9 @@
   <% @projects.each do |project| %>
     <%= render project %>
     <p>
-      <%= link_to "Show this project", project %>
+      <div class="btn"><%= link_to "Show this project", project, :class => "btn btn-outline-secondary" %></div>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New project", new_project_path %>
+<a href="/projects/new/" class="btn btn-outline-dark">New Project</a>
